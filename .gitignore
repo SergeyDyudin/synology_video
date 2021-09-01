@@ -1,0 +1,5 @@
+venv
+secret_key.py
+.idea
+__pycache__
+.vscode
