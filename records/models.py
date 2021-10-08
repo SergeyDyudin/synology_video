@@ -28,8 +28,8 @@ class Records(models.Model):
     type = models.CharField(max_length=20, choices=CONTENT_TYPES, default='video', verbose_name='Тип контента')
     public = models.BooleanField(default=True, verbose_name="Опубликован")
     slug = models.SlugField(unique=True, blank=False, verbose_name="URL")
-    time_create = models.DateTimeField(auto_now_add=True, verbose_name="Дата добавления")
-    time_update = models.DateTimeField(auto_now=True, verbose_name="Дата изменения")
+    time_create = models.DateTimeField(verbose_name="Дата добавления")
+    time_update = models.DateTimeField(verbose_name="Дата изменения")
     count_views = models.IntegerField(auto_created=True, default=0, editable=False, verbose_name='Счетчик просмотров')
 
     def __str__(self):
@@ -38,9 +38,10 @@ class Records(models.Model):
     class Meta:
         verbose_name = 'Файл'
         verbose_name_plural = 'Файлы'
+        ordering = ['-time_create', 'title']
 
     def get_absolute_url(self):
-        return reverse('record', kwargs={'slug': self.slug})
+        return reverse('records:record', kwargs={'slug': self.slug})
 
     def save_with_slug(self, *args, **kwargs):
         self.slug = slugify(''.join(alphabet.get(w, w) for w in self.title.lower()))

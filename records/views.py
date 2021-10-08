@@ -11,8 +11,9 @@ def insert_in_base(request):
 
 
 class RecordsList(ListView):
-    pass
+    model = Records
+    # paginate_by = 20
 
 
 class RecordDetail(DetailView):
-    pass
+    model = Records

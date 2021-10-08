@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Sergey Dyudin">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block include-css %}
+        <link type="text/css" rel="stylesheet" href="{% static 'records/css/style.css' %}">
+        <link type="text/css" rel="stylesheet" href="{% static 'records/css/bootstrap.min.css' %}">
+        <link type="text/css" rel="stylesheet" href="{% static 'records/css/bootstrap-icons.css' %}">
+    {% endblock %}
+    <title>{{ title }}</title>
+</head>
+<body>
+{% block header %}
+    <nav class="navbar mw-100 navbar-dark bg-primary">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 ms-5 h1">
+                <i class="bi bi-tv"></i>
+                 VIDEORECORDS
+             </span>
+        </div>
+    </nav>
+    <div class="body-bgc container-fluid mt-4">
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+</body>
+</html>
