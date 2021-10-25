@@ -1,1 +1,24 @@
 {% extends 'records/base.html' %}
+{%  load static %}
+
+{% block content %}
+    <p>
+     <h1 class="record-title">{{ object.title }}</h1>
+    </p>
+    <div class="record-content">
+        <video class="record-content__video" controls="controls">
+        <source src="{{ MEDIA_URL }}{{ object.file}}">
+        </video>
+        <div class="record-content__data">
+           <p>
+                <h3>Дата мероприятия: </h3>
+                <h4>{{ object.date.date }}</h4>
+            </p>
+            {% if object.description %}
+                <h3>Комментарий: </h3>
+                <p>{{ object.description }}</p>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

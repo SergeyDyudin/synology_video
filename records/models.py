@@ -1,3 +1,5 @@
+import datetime
+
 from django.db import models
 
 from django.urls import reverse
@@ -16,7 +18,7 @@ class Records(models.Model):
         ('doc', 'Документ'),
     ]
 
-    def upload_path(self, filename):
+    def upload_path(self, filename: str) -> str:
         if self.type == 'video':
             return f'records/video/{filename}'
         else:
@@ -28,8 +30,9 @@ class Records(models.Model):
     type = models.CharField(max_length=20, choices=CONTENT_TYPES, default='video', verbose_name='Тип контента')
     public = models.BooleanField(default=True, verbose_name="Опубликован")
     slug = models.SlugField(unique=True, blank=False, verbose_name="URL")
-    time_create = models.DateTimeField(verbose_name="Дата добавления")
-    time_update = models.DateTimeField(verbose_name="Дата изменения")
+    date = models.DateTimeField(default=datetime.date.today, verbose_name="Дата мероприятия")
+    time_create = models.DateTimeField(auto_now_add=True, verbose_name="Дата добавления записи")
+    time_update = models.DateTimeField(auto_now=True, verbose_name="Последнее изменение данных записи")
     count_views = models.IntegerField(auto_created=True, default=0, editable=False, verbose_name='Счетчик просмотров')
 
     def __str__(self):
@@ -38,7 +41,7 @@ class Records(models.Model):
     class Meta:
         verbose_name = 'Файл'
         verbose_name_plural = 'Файлы'
-        ordering = ['-time_create', 'title']
+        ordering = ['-date', 'title']
 
     def get_absolute_url(self):
         return reverse('records:record', kwargs={'slug': self.slug})

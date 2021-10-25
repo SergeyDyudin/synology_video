@@ -5,8 +5,8 @@
 {% for record in records_list %}
     <div class="row ms-3 my-4">
         {% with records_list|prev_val:forloop.counter0 as prev %}
-        {% if record.time_create|date:'d-m-Y' != prev.time_create|date:'d-m-Y' %}
-            <b>{{ record.time_create.date}}</b>
+        {% if record.date|date:'d-m-Y' != prev.date|date:'d-m-Y' %}
+            <b>{{ record.date.date}}</b>
         {% endif %}
         {% endwith %}
         <div class="row ps-lg-5 ms-lg-1 mt-4">

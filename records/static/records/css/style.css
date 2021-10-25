@@ -3,6 +3,21 @@
 /*            background: radial-gradient(circle at 65% 15%, aqua, darkblue);*/
 }
 
+.navbar__title{
+    color: #f0f8ff;
+    text-decoration: none;
+}
+
+.navbar__title:hover{
+    color: #f0f8ff;
+    text-decoration: none;
+}
+
+.navbar__title:visited{
+    color: #f0f8ff;
+    text-decoration: none;
+}
+
 .header_btn{
     text-decoration: none;
     padding: 0.2em;
@@ -35,3 +50,26 @@ b{
             background-color: antiquewhite;
         }
 */
+
+.record-title{
+    margin-left: 1em;
+    margin-top: 1em;
+}
+
+.record-content{
+    display: flex;
+    justify-content: space-around;
+}
+
+.record-content__video{
+    width:70%;
+    margin-top: 1em;
+    margin-left: 1em;
+}
+
+.record-content__data{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}

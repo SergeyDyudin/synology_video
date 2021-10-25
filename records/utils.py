@@ -16,6 +16,7 @@ def insert_in_database():
                 file=f'records/video/{record}.mp4',
                 type='video',
                 public=True,
+                date=date,
                 time_create=date,
                 time_update=date,
 
