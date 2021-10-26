@@ -27,3 +27,5 @@ urlpatterns = [
     path('', include('records.urls')),
     path('__debug__/', include(debug_toolbar.urls)),
 ]
+admin.AdminSite.site_header = 'Администрирование сайта'
+admin.AdminSite.site_title = 'Администрирование сайта'

@@ -16,8 +16,14 @@ class RecordsList(ListView):
     # paginate_by = 20
 
     def get_queryset(self):
-        return Records.objects.filter(time_create__lte=timezone.now()).filter(public=True)
+        return Records.objects.filter(date__lte=timezone.now()).filter(public=True)
 
 
 class RecordDetail(DetailView):
     model = Records
+
+    def get(self, request, *args, **kwargs):
+        context = super(RecordDetail, self).get(request, *args, **kwargs)
+        self.object.count_views += 1
+        self.object.save()
+        return context

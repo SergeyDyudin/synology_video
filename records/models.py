@@ -1,4 +1,5 @@
 import datetime
+from django.utils import timezone
 
 from django.db import models
 
@@ -30,7 +31,7 @@ class Records(models.Model):
     type = models.CharField(max_length=20, choices=CONTENT_TYPES, default='video', verbose_name='Тип контента')
     public = models.BooleanField(default=True, verbose_name="Опубликован")
     slug = models.SlugField(unique=True, blank=False, verbose_name="URL")
-    date = models.DateTimeField(default=datetime.date.today, verbose_name="Дата мероприятия")
+    date = models.DateTimeField(default=timezone.now, verbose_name="Дата мероприятия")
     time_create = models.DateTimeField(auto_now_add=True, verbose_name="Дата добавления записи")
     time_update = models.DateTimeField(auto_now=True, verbose_name="Последнее изменение данных записи")
     count_views = models.IntegerField(auto_created=True, default=0, editable=False, verbose_name='Счетчик просмотров')
