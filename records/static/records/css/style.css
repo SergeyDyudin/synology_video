@@ -1,21 +1,31 @@
 .navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     box-shadow: 10px 10px 5px #191919;
 /*            background: radial-gradient(circle at 65% 15%, aqua, darkblue);*/
 }
 
-.navbar__title{
+.navbar__title, .navbar__title:hover, .navbar__title:visited{
     color: #f0f8ff;
     text-decoration: none;
 }
 
-.navbar__title:hover{
+.navbar__button{
+    font-size: 1.25rem;
+    margin: auto 4em;
+}
+
+.navbar__button_logout, .navbar__button_logout:visited{
+    border-bottom: 3px solid #f0f8ff;
+    border-radius: 2px;
     color: #f0f8ff;
     text-decoration: none;
 }
 
-.navbar__title:visited{
-    color: #f0f8ff;
-    text-decoration: none;
+.navbar__button_logout:hover{
+    color: #FF8E00;
+    border-bottom: 4px solid #FF8E00;
 }
 
 .header_btn{

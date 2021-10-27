@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Sergey Dyudin">
+    {% load static %}
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'records/css/auth.css' %}">
+    <title>Login</title>
+</head>
+<body>
+    <form class="box" action="" method="POST">
+        {% csrf_token%}
+        <h1>Login</h1>
+<!--        {{ form.username }}-->
+<!--        {{ form.password }}-->
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+        <input type="submit" name="" value="Login">
+        {% for message in messages %}
+            <p style="color: white" id="messages">{{ message }}</p>
+        {% endfor %}
+      </form>
+</body>
+</html>
