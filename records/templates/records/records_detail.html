@@ -10,15 +10,13 @@
         <source src="{{ MEDIA_URL }}{{ object.file}}">
         </video>
         <div class="record-content__data">
-           <p>
-                <h3>Дата мероприятия: </h3>
-                <h4>{{ object.date.date }}</h4>
-            </p>
+            <h3>Дата мероприятия: </h3>
+            <h4>{{ object.date.date }}</h4>
             {% if object.description %}
                 <h3>Комментарий: </h3>
                 <p>{{ object.description }}</p>
             {% endif %}
-            <a class="col col-4 col-lg-2 col-xl-1 btn btn-primary" href="{{ MEDIA_URL }}{{ object.file}}" download>
+            <a class="btn btn-primary" href="{{ MEDIA_URL }}{{ object.file}}" download>
                 <i class="bi"></i> DOWNLOAD</a>
         </div>
     </div>

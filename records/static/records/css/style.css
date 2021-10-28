@@ -104,6 +104,10 @@ b{
     align-items: center;
 }
 
+.record-content__data h3, h4 {
+    text-align: center;
+}
+
 @media screen and (max-width: 760px){
     .record-content{
         display: block;
