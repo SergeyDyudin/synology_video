@@ -6,15 +6,22 @@
     <div class="row ms-3 my-4">
         {% with records_list|prev_val:forloop.counter0 as prev %}
         {% if record.date|date:'d-m-Y' != prev.date|date:'d-m-Y' %}
-            <b>{{ record.date.date}}</b>
+            <b>{{ record.date.date}}{% if record.type == 'doc' %} Документы {% endif %}</b>
         {% endif %}
         {% endwith %}
         <div class="row ps-lg-5 ms-lg-1 mt-4">
              <div class="row align-items-start my-1">
-                 <a class="col col-4 col-lg-2 col-xl-1 btn btn-primary" href="{{ record.get_absolute_url}}">
-                     <i class="bi bi-play-circle"></i> PLAY</a>
-                 <a class="col col-7 col-xl-4 ms-2 ms-lg-3 header_btn" href="{{ record.get_absolute_url}}">
-                     <h3>{{ record.title }}</h3></a>
+                 {% if record.type == 'video' %}
+                    <a class="col col-4 col-lg-2 col-xl-1 btn btn-primary" href="{{ record.get_absolute_url}}">
+                        <i class="bi bi-play-circle"></i> PLAY</a>
+                     <a class="col col-7 col-xl-4 ms-2 ms-lg-3 header_btn" href="{{ record.get_absolute_url}}">
+                        <h3>{{ record.title }}</h3></a>
+                 {% else %}
+                     <a class="col col-4 col-lg-2 col-xl-1 btn btn-primary" href="{{ MEDIA_URL }}{{ record.file}}" download>
+                         <i class="bi"></i> DOWNLOAD</a>
+                    <a class="col col-7 col-xl-4 ms-2 ms-lg-3 header_btn" href="{{ MEDIA_URL }}{{ record.file}}" download>
+                        <h3>{{ record.title }}</h3></a>
+                 {% endif %}
              </div>
         </div>
     </div>
