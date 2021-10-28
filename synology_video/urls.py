@@ -26,7 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('records.urls')),
     # path('accounts/', include('django.contrib.auth.urls')),
-    path('__debug__/', include(debug_toolbar.urls)),
+    # path('__debug__/', include(debug_toolbar.urls)),
 ]
 admin.AdminSite.site_header = 'Администрирование сайта'
 admin.AdminSite.site_title = 'Администрирование сайта'
