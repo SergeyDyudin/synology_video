@@ -31,6 +31,22 @@ class RecordsList(LoginRequiredMixin, ListView):
         return Records.objects.filter(date__lte=timezone.now()).filter(public=True)
 
 
+class VideoList(LoginRequiredMixin, ListView):
+    model = Records
+    # paginate_by = 20
+
+    def get_queryset(self):
+        return Records.objects.filter(date__lte=timezone.now()).filter(public=True).filter(type='video')
+
+
+class FilesList(LoginRequiredMixin, ListView):
+    model = Records
+    # paginate_by = 20
+
+    def get_queryset(self):
+        return Records.objects.filter(date__lte=timezone.now()).filter(public=True).filter(type='doc')
+
+
 class RecordDetail(LoginRequiredMixin, DetailView):
     model = Records
 

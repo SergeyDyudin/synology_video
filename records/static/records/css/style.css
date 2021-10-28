@@ -11,9 +11,26 @@
     text-decoration: none;
 }
 
+.navbar__menu{
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .navbar__button{
     font-size: 1.25rem;
     margin: auto 4em;
+}
+
+.navbar__button_menu, .navbar__button_menu:visited{
+    color: #f0f8ff;
+    text-decoration: none;
+    /*margin: auto 4em;*/
+}
+
+.navbar__button_menu:hover{
+    /*font-weight: bold;*/
+    font-size: 1.30rem;
 }
 
 .navbar__button_logout, .navbar__button_logout:visited{

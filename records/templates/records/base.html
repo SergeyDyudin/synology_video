@@ -23,9 +23,13 @@
              </span>
 {#        </div>#}
         {% if user.is_authenticated %}
-        <div class="navbar__button">
-            <a class="navbar__button_logout" href="{% url 'records:logout' %}">Выход</a>
-        </div>
+            <div class="navbar__menu navbar__button">
+                <a class="navbar__button_menu" href="{% url 'records:video' %}">Видео</a>
+                <a class="navbar__button_menu" href="{% url 'records:files' %}">Файлы</a>
+            </div>
+            <div class="navbar__button">
+                <a class="navbar__button_logout" href="{% url 'records:logout' %}">Выход</a>
+            </div>
         {% endif %}
     </nav>
 {#    <div class="body-bgc container-fluid mt-4">#}
