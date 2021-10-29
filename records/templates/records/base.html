@@ -16,16 +16,16 @@
 <body>
 {% block header %}
     <nav class="navbar navbar-dark">
-            <span class="navbar-brand h1">
+            <span class="navbar-brand h1" id="nav-title">
                 <i class="bi bi-tv"></i>
                 <a class="navbar__title" href="{% url 'records:home' %}"> VIDEORECORDS </a>
              </span>
         {% if user.is_authenticated %}
-            <div class="navbar__menu navbar__button">
+            <div class="navbar__menu navbar__button" id="nav-menu">
                 <a class="navbar__button_menu" href="{% url 'records:video' %}">Видео</a>
                 <a class="navbar__button_menu" href="{% url 'records:files' %}">Файлы</a>
             </div>
-            <div class="navbar__button">
+            <div class="navbar__button" id="nav-logout-button">
                 <a class="navbar__button_logout" href="{% url 'records:logout' %}">Выход</a>
             </div>
         {% endif %}
